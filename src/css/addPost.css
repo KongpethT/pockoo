@@ -1,0 +1,13 @@
+.add-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row-gap: 20px;
+    min-width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.add-post .items {
+    width: 60%;
+}
