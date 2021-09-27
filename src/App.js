@@ -6,7 +6,6 @@ import Blog from "./cpn/Blog"
 import { useState } from "react"
 import Login from "./cpn/login"
 import Admin from "./cpn/Admin"
-import AddBlog from "./cpn/addBlog"
 
 function App() {
   const [about, setAbout] = useState(null)
@@ -59,14 +58,12 @@ function App() {
 
   return (
     <div>
-      <AddBlog />
       <Header clickAbout={clickAbout} clickBlog={clickBlog} />
       <Footer clickAdmin={clickAdmin} />
       {aboutElement}
       {blogElement}
       {loginElement}
       {adminElement}
-
     </div>
   );
 }

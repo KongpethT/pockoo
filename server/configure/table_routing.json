@@ -1,13 +1,16 @@
 {
     "routing": [
         {
-            "name": "./router/blogs_router"
+            "name": "./router/blogs_route"
         },
         {
             "name": "./router/messaged_route"
         },
         {
             "name": "./router/debug_route"
+        },
+        {
+            "name": "./router/upload_route"
         }
     ]
 }

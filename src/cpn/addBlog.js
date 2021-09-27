@@ -15,7 +15,6 @@ const AddBlog = (props) => {
     const [getUrlImage, setUrlImage] = useState(null)
     const imageRef = useRef(null)
 
-
     if (getUrlImage === null) {
         setUrlImage("image/bg/240x240.png")
     }
@@ -27,16 +26,12 @@ const AddBlog = (props) => {
             setUrlImage(URL.createObjectURL(file))
         }
     }
+
     const add = () => {
         if (!!getCode && !!getTitle && !!getSelectedfile) {
             const data = new FormData()
-            data.append('file', getSelectedfile)
-
-            axios.post("http://localhost:3001/upload", data, {
-            }).then(res => { // then print response status
-                console.log(res.statusText)
-            })
-            
+            data.append('photo', getSelectedfile)
+            axios.post(Api.upload, data, {})
             axios.post(Api.dataBlogs, {
                 code: getCode,
                 title: getTitle,
@@ -44,7 +39,6 @@ const AddBlog = (props) => {
                 category: getCategory,
                 text: getImagName
             })
-            
         }
     }
 
