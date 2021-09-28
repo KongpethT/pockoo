@@ -18,6 +18,7 @@ exports.blogs_ = function (req, res) {
     const author = req.body.author
     const category = req.body.category
     const cover = req.body.text
+
     conn.query("insert into blogs (code, title, author, category,cover) values (?,?,?,?,?)",
         [code, title, author, category, cover], (error, result) => {
             if (error) {
@@ -40,5 +41,6 @@ exports.blogs_ = function (req, res) {
                 }
             }
         })
+        
     setTimeout(() => { message = null }, 30000)
 }

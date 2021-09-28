@@ -7,19 +7,19 @@ const Footer = (props) => {
             <div className="footer-copyright"><p>Copyright-2021 by pockoo</p></div>
             <div className="footer-social">
                 <p>
-                    <img className="social-item" src="media/image/facebook.png" alt="facebook" />
+                    <img className="social-item" src="image/footer/facebook.png" alt="facebook" />
                     <span>Facebook</span>
                 </p>
                 <p>
-                    <img className="social-item" src="media/image/twiter.png" alt="twiter" />
+                    <img className="social-item" src="image/footer/twiter.png" alt="twiter" />
                     <span>Twiter</span>
                 </p>
                 <p>
-                    <img className="social-item" src="media/image/instagram.png" alt="instagram" />
+                    <img className="social-item" src="image/footer/instagram.png" alt="instagram" />
                     <span>Imstagram</span>
                 </p>
                 <p onClick={clickAdmin}>
-                    <img className="social-item" src="media/image/admin.png" alt="admin" />
+                    <img className="social-item" src="image/footer/admin.png" alt="admin" />
                     <span>Admin</span>
                 </p>
             </div>
