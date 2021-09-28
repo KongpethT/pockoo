@@ -1,46 +1,19 @@
 import "../css/textInput.css"
 
 const TextInput = (props) => {
-    const { title, type, placeholder, onchange } = props
-
+    const { type, title, placeholder, onChange, onClick, backgroundColor, value } = props
+    const componentInput = "component-input"
     return (
-        <div
-            className="TextInput"
-            style={
-                {
-                    display: "flex",
-                    flexDirection: "column",
-                    width: "60%",
-                    margin: "0 auto"
-                }
-            }
-        >
-            <label style={
-                {
-                    fontSize: "18px",
-                    fontWeight: "bold",
-                    marginBottom: "10px",
-                    marginTop: "10px",
-
-                }
-            }>{title}</label>
+        <div className="text-input">
+            <label>{title}</label>
             <input
+                id={backgroundColor}
+                className={componentInput}
                 type={type}
-                onChange={onchange}
+                onChange={onChange}
+                onClick={onClick}
                 placeholder={placeholder}
-                style={
-                    {
-                        width: "100%",
-                        height: "30px",
-                        border: "0",
-                        backgroundColor: "rgba(0, 0, 0, 0.7)",
-                        outline: "none",
-                        borderRadius: "5px",
-                        color: "white",
-                        fontSize: "18px",
-                        fontWeight: "lighter",
-                    }
-                }
+                value={value}
             />
         </div>
     )

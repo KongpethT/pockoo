@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@200&display=swap');
 * {
-  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  font-family: 1rem/1.5 'IBM Plex Sans Thai Looped', sans-serif;
+  /*font: 1rem/1.5 "PT Sans", Arial, sans-serif;*/
   margin: 0;
   box-sizing: border-box;
 }

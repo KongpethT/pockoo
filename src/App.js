@@ -1,12 +1,12 @@
 import "./App.css"
-import Header from "./cpn/Header"
-import Footer from "./cpn/Footer"
-import About from "./cpn/About"
-import Blog from "./cpn/Blog"
+import Header from "./template/header"
+import Footer from "./template/footer"
+import About from "./template/about"
+import Blog from "./blogs/blog"
 import { useState } from "react"
-import Login from "./cpn/login"
-import Admin from "./cpn/Admin"
-import AddBlog from "./cpn/addBlog"
+import Login from "./admin/login"
+import Admin from "./admin/admin"
+import Demo from "./demo/demoForm"
 
 function App() {
   const [about, setAbout] = useState(null)
@@ -56,10 +56,8 @@ function App() {
     return (setLogin(true))
   }
 
-
   return (
     <div>
-      <AddBlog />
       <Header clickAbout={clickAbout} clickBlog={clickBlog} />
       <Footer clickAdmin={clickAdmin} />
       {aboutElement}

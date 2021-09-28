@@ -1,13 +1,12 @@
-import "../css/button.css"
+//import "../css/button.css"
 
 const Button = (props) => {
-    const { title, bg, onclick } = props
+    const { title, onclick } = props
 
     return (
 
         <div className="button">
             <button
-                className={bg}
                 type="submit"
                 style={
                     {
