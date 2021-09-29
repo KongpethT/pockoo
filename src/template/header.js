@@ -6,11 +6,10 @@ const Header = (props) => {
         <div className="header" >
             <nav className="header-navbar" >
                 <ul className="navbar-menu">
-                    <li className="menu-items" onClick={clickBlog}> มังงะ </li>
+                    <li className="menu-items" onClick={clickBlog}> มังงะ </li> |
                     <li className="menu-items" onClick={clickAbout}> เกี่ยวกับ </li>
                 </ul>
             </nav>
-            <p className="atext"></p>
         </div>
     )
 }

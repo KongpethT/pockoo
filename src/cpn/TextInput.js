@@ -1,7 +1,7 @@
 import "../css/textInput.css"
 
 const TextInput = (props) => {
-    const { type, title, placeholder, onChange, onClick, backgroundColor, value } = props
+    const { type, title, placeholder, onChange, onClick, backgroundColor, value, accept } = props
     const componentInput = "component-input"
     return (
         <div className="text-input">
@@ -10,6 +10,7 @@ const TextInput = (props) => {
                 id={backgroundColor}
                 className={componentInput}
                 type={type}
+                accept={accept}
                 onChange={onChange}
                 onClick={onClick}
                 placeholder={placeholder}

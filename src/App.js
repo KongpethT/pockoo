@@ -4,18 +4,8 @@ import Footer from "./template/footer"
 import About from "./template/about"
 import Blog from "./blogs/blog"
 import { useState } from "react"
-<<<<<<< HEAD
 import Login from "./admin/login"
 import Admin from "./admin/admin"
-import Demo from "./demo/demoForm"
-||||||| 777158ff
-import Login from "./cpn/login"
-import Admin from "./cpn/Admin"
-import AddBlog from "./cpn/addBlog"
-=======
-import Login from "./cpn/login"
-import Admin from "./cpn/Admin"
->>>>>>> a997a44a11d742dfd0195ab8130496422e0cee5a
 
 function App() {
   const [about, setAbout] = useState(null)

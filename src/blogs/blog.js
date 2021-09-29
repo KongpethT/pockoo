@@ -4,14 +4,15 @@ import Api from "../admin/API"
 import axios from "axios"
 
 const Blog = (props) => {
+    const [getJsonData, setJsonData] = useState([])
     const [blogs, setBlogs] = useState([])
     const { clickClose } = props
+
     useEffect(() => {
-        axios.get(Api.dataBlogs).then((response) => {
+        axios.get(Api.gsBlogs).then((response) => {
             setBlogs(response.data)
         })
     }, [])
-    console.log(blogs);
 
     return (
         <div className="blog">
@@ -21,11 +22,9 @@ const Blog = (props) => {
                 {
                     blogs.map((row, index) => {
                         return (
-
                             <div key={index} className="bolg-content-items">
                                 <h4>{row.title}</h4>
                                 <img src={row.cover} alt="cover" />
-
                             </div>
                         )
                     })

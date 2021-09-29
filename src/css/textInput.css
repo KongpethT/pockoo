@@ -37,7 +37,7 @@
 
 .component-input:focus {
     border: 1px solid rgba(0, 0, 255, 0.3);
-    box-shadow: 0px 0px 2px 0px blue;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 255, 0.438);
     transition: 0.2s ease-in-out;
 }
 
@@ -69,9 +69,9 @@
     cursor: pointer;
 }
 
-.text-input input[type=button]:focus, .text-input input[type=submit]:focus, .text-input input[type=reset]:focus {
+.text-input input[type=button]:active, .text-input input[type=submit]:active, .text-input input[type=reset]:active {
     border: none;
-    box-shadow: none;
+    box-shadow: 0 0 4px 0 black;
     opacity: 0.7;
     transition: 0.2s ease-in-out;
 }

@@ -4,7 +4,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100vh;
+    height: calc(100vh - 60px);
     width: 100vw;
     background-color: transparent;
     background-image: url("../media/image/bg001.webp");
@@ -19,7 +19,7 @@
 .login-header {
     position: fixed;
     top: 0;
-    background-color: tomato;
+    background-color: white;
     width: 100vw;
     height: 80px;
     display: flex;
@@ -32,10 +32,11 @@
     flex-direction: column;
     justify-self: center;
     align-items: center;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     padding: 50px;
-    background-color: rgba(255, 99, 71, 0.37);
+    /**background-color: rgba(255, 99, 71, 0.37); */
     grid-gap: 30px;
+    /*box-shadow: 0 0 4px 0 white;*/
 }
 
 .items-input {

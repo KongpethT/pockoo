@@ -1,43 +1,54 @@
-import { useRef, useState } from "react"
-//import "../css/addBlog.css"
+import { useEffect, useRef, useState } from "react"
+import TextInput from "../cpn/TextInput"
+import "../css/addBlog.css"
 //import "../css/form.css"
 import axios from "axios"
 import Api from "../admin/API"
 
 const AddBlog = (props) => {
-
     const [getCode, setCode] = useState(null)
     const [getTitle, setTitle] = useState(null)
     const [getSelectedfile, setSelectedFile] = useState(null)
-    const [getImagName, setImageName] = useState(null)
     const [getAuthor, setAuthor] = useState(null)
     const [getCategory, setCategory] = useState(null)
     const [getUrlImage, setUrlImage] = useState(null)
-    const imageRef = useRef(null)
 
     if (getUrlImage === null) {
         setUrlImage("image/bg/240x240.png")
     }
+
     const onChanged = (event) => {
         setSelectedFile(event.target.files[0])
-        setImageName("/image/cover/" + imageRef.current.value.substr(12))
-        const file = imageRef.current.files[0]
-        if (file) {
-            setUrlImage(URL.createObjectURL(file))
-        }
     }
+
+    useEffect(() => {
+        if (!!getSelectedfile) {
+            const file = getSelectedfile
+            if (file) {
+                setUrlImage(URL.createObjectURL(file))
+            }
+        }
+    }, [getSelectedfile])
 
     const add = () => {
         if (!!getCode && !!getTitle && !!getSelectedfile) {
-            const data = new FormData()
-            data.append('photo', getSelectedfile)
-            axios.post(Api.upload, data, {})
-            axios.post(Api.dataBlogs, {
+            const values = {
                 code: getCode,
                 title: getTitle,
                 author: getAuthor,
                 category: getCategory,
-                text: getImagName
+                text: "/image/cover/" + getSelectedfile.name,
+                file: getSelectedfile
+            }
+            const data = new FormData()
+            data.append('photo', getSelectedfile)
+            axios.post(Api.upload, data, {})
+            axios.post(Api.gsBlogs, {
+                code: getCode,
+                title: getTitle,
+                author: getAuthor,
+                category: getCategory,
+                text: "/image/cover/" + getSelectedfile.name,
             })
         }
     }
@@ -45,52 +56,17 @@ const AddBlog = (props) => {
     return (
         <div className="add-blog">
             <div className="header-bar">
-                <h3>เพิ่มบล็อกใหม่</h3>
+                <h3>บล็อกใหม่</h3>
             </div>
-
-            <p className="items">
-                <input
-                    type="text"
-                    placeholder="รหัส *"
-                    onChange={(e) => { setCode(e.target.value) }}
-                />
-            </p>
-
-            <p className="items">
-                <input
-                    type="text"
-                    placeholder="เรื่อง *"
-                    onChange={(e) => { setTitle(e.target.value) }}
-                />
-            </p>
-            <p className="items">
-                <input
-                    type="text"
-                    placeholder="ผู้แต่ง"
-                    onChange={(e) => { setAuthor(e.target.value) }}
-                />
-            </p>
-
-            <p className="items">
-                <input
-                    type="text"
-                    placeholder="หมวดหมู่"
-                    onChange={(e) => { setCategory(e.target.value) }}
-                />
-            </p>
             <div className="image-preview">
                 <img src={getUrlImage} alt="cover"></img>
             </div>
-            <p className="items">
-                <input
-                    type="file"
-                    accept="image/png"
-                    ref={imageRef}
-                    onChange={onChanged}
-                />
-            </p>
-
-            <p><button onClick={add}>เพิ่ม</button></p>
+            <TextInput type="text" placeholder="รหัส" onChange={event => setCode(event.target.value)} />
+            <TextInput type="text" placeholder="เรื่อง" onChange={event => setTitle(event.target.value)} />
+            <TextInput type="text" placeholder="ผู้แต่ง" onChange={event => setAuthor(event.target.value)} />
+            <TextInput type="text" placeholder="หมวดหมู่" onChange={event => setCategory(event.target.value)} />
+            <TextInput type="file" accept="image/png, image/jpeg" onChange={onChanged} />
+            <TextInput type="submit" value="เพิ่ม" backgroundColor="primary" onClick={add} />
         </div >
     )
 }
